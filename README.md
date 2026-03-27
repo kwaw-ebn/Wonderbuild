@@ -1,4 +1,4 @@
-##🧱 Wonderbuild Interlocking Bricks – SEO Website##
+*🧱 Wonderbuild Interlocking Bricks – SEO Website*
 
 This project is a real-world SEO-driven website built for Wonderbuild Interlocking Bricks DLTR, a construction company in Ghana.
 
