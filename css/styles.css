@@ -921,3 +921,95 @@
         font-size: 1rem;
     }
 }
+/* =========================
+   BLOG SECTION
+========================= */
+#blog {
+    padding: 60px 50px;
+    background-color: #f9f9f9;
+}
+
+#blog h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #0a5c36; /* Brand green */
+    margin-bottom: 40px;
+}
+
+/* Blog grid layout */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+    gap: 30px;
+}
+
+/* Individual blog card */
+.blog-card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.blog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-card h3 {
+    font-size: 1.3rem;
+    color: #0a5c36;
+    margin: 15px;
+}
+
+.blog-card p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0 15px 15px;
+}
+
+.blog-card a {
+    display: inline-block;
+    margin: 0 15px 15px;
+    text-decoration: none;
+    background-color: #0a5c36;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    transition: background-color 0.3s;
+}
+
+.blog-card a:hover {
+    background-color: #084c2d;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1024px) {
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .blog-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+
+    #blog h2 {
+        font-size: 2rem;
+    }
+
+    .blog-card h3 {
+        font-size: 1.2rem;
+    }
+}
