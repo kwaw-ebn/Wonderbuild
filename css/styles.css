@@ -332,26 +332,116 @@
 /* =========================
    TESTIMONIALS
 ========================= */
-.testimonials {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+#testimonials {
+    padding: 60px 50px;
+    background-color: #f9f9f9;
 }
 
+#testimonials h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #0a5c36; /* brand green */
+    margin-bottom: 40px;
+}
+
+/* Testimonials grid */
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns desktop */
+    gap: 30px;
+}
+
+/* Individual testimonial card */
 .testimonial-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.testimonial-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.testimonial-card h4 {
+    font-size: 1rem;
+    color: #0a5c36;
+    font-weight: bold;
 }
 
 /* =========================
-   CTA
+   CTA SECTION
 ========================= */
 .cta {
-  text-align: center;
-  background: #0a5c36;
-  color: #fff;
-  padding: 40px 20px;
+    text-align: center;
+    background-color: #0a5c36; /* brand green */
+    color: #fff;
+    padding: 60px 20px;
+    border-radius: 12px;
+    margin: 40px 0;
+}
+
+.cta h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+.cta .btn {
+    display: inline-block;
+    background-color: #fff;
+    color: #0a5c36;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.cta .btn:hover {
+    background-color: #084c2d;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1024px) {
+    .testimonials {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns tablet */
+    }
+}
+
+@media (max-width: 600px) {
+    .testimonials {
+        grid-template-columns: 1fr; /* 1 column mobile */
+    }
+
+    #testimonials h2,
+    .cta h2 {
+        font-size: 1.8rem;
+    }
+
+    .testimonial-card p {
+        font-size: 0.95rem;
+    }
+
+    .cta .btn {
+        padding: 12px 25px;
+        font-size: 0.95rem;
+    }
 }
 
 /* =========================
