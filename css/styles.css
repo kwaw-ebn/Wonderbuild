@@ -142,42 +142,6 @@
 .header nav a:hover {
     color: #a8d5ba; /* Light green on hover */
 }
-/* =========================
-   HERO
-========================= */
-.hero {
-  padding: 50px 20px;
-  background: linear-gradient(to right, #e9f3ee, #ffffff);
-}
-
-.hero-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.hero-text {
-  flex: 1;
-  min-width: 280px;
-}
-
-.hero-text h1 {
-  font-size: 32px;
-  color: #0a5c36;
-  margin-bottom: 10px;
-}
-
-.hero-image {
-  flex: 1;
-  min-width: 280px;
-}
-
-.hero-image img {
-  width: 100%;
-  border-radius: 10px;
-}
 
 /* =========================
    BUTTONS
