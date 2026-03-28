@@ -1,6 +1,130 @@
 /* =========================
    GLOBAL RESET
 ========================= */
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+    padding: 80px 50px;
+    background: linear-gradient(135deg, #e9f3ee, #ffffff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    gap: 50px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    color: #0a5c36;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.cta-buttons a {
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn {
+    background-color: #0a5c36;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: #084c2d;
+}
+
+.btn-outline {
+    border: 2px solid #0a5c36;
+    color: #0a5c36;
+}
+
+.btn-outline:hover {
+    background-color: #0a5c36;
+    color: #fff;
+}
+
+/* Hero Image */
+.hero-image {
+    flex: 1;
+    text-align: right;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Responsive Hero */
+@media (max-width: 992px) {
+    .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-image {
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .cta-buttons a {
+        width: 100%;
+    }
+
+    .hero-image img {
+        max-width: 100%;
+    }
+}
 * {
   margin: 0;
   padding: 0;
