@@ -1083,3 +1083,93 @@ body {
     margin: 10px 0;
   }
 } the css
+/* =========================
+   PROJECT DETAILS PAGE
+========================= */
+
+.section {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px 20px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Title */
+.section h1 {
+  font-size: 2.2rem;
+  color: #0a5c36;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Image */
+.section img {
+  width: 100%;
+  border-radius: 12px;
+  margin: 20px 0;
+  object-fit: cover;
+}
+
+/* Paragraphs */
+.section p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+/* Highlight text */
+.section strong {
+  color: #0a5c36;
+}
+
+/* List */
+.section ul {
+  margin: 15px 0 20px 20px;
+}
+
+.section ul li {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* Back Button */
+.section .btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #0a5c36;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.section .btn:hover {
+  background: #084c2d;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 768px) {
+
+  .section {
+    margin: 30px 15px;
+    padding: 20px;
+  }
+
+  .section h1 {
+    font-size: 1.6rem;
+  }
+
+  .section p {
+    font-size: 0.95rem;
+  }
+
+}
