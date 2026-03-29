@@ -5,95 +5,101 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Testimonials - Wonderbuild</title>
 
-  <!-- Link your external CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="css/styles.css">
-  <script src="js/script.js"></script>
-</body>
-</html>
 </head>
 
 <body>
 
-  <!-- HEADER / NAV (same structure as your other pages) -->
- <header class="header">
+<!-- HEADER -->
+<header class="header">
   <h2>Wonderbuild</h2>
-
   <nav>
     <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
     <a href="blog.html">Blog</a>
     <a href="testimonials.html">Testimonials</a>
     <a href="contact.html">Contact</a>
-    </nav>
+  </nav>
 </header>
 
-  <!-- MAIN CONTENT -->
-  <main class="container">
+<!-- MAIN -->
+<main class="container">
 
-    <div class="post" data-id="1">
-  <div class="post-header">
-    <img src="assets/test.jpg" alt="Wonderbuild">
-    <div>
-      <h4>Wonderbuild Interlocking Bricks</h4>
-      <span>18h • Accra</span>
+  <!-- POST 1 -->
+  <div class="post" data-id="1">
+    <div class="post-header">
+      <img src="assets/test.jpg" alt="Wonderbuild">
+      <div>
+        <h4>Wonderbuild Interlocking Bricks</h4>
+        <span>18h • Accra</span>
+      </div>
+    </div>
+
+    <img class="post-image" src="assets/test.jpg" alt="Client House">
+
+    <div class="post-content">
+      "We were able to build our dream home faster and more affordably..."
+    </div>
+
+    <div class="stats">
+      👍 <span class="likes"><span>0</span></span> Likes • 
+      💬 <span class="comments-count"><span>0</span></span> Comments • 
+      🔁 <span class="shares"><span>0</span></span> Shares
+    </div>
+
+    <div class="actions">
+      <button class="like-btn">Like</button>
+      <button class="comment-btn">Comment</button>
+      <button class="share-btn">Share</button>
+    </div>
+
+    <div class="comment-section" style="display:none;">
+      <input type="text" class="comment-input" placeholder="Write a comment...">
+      <button class="submit-comment">Post</button>
+      <div class="comments-list"></div>
     </div>
   </div>
 
-  <img class="post-image" src="assets/test.jpg" alt="Client House">
+  <!-- POST 2 -->
+  <div class="post" data-id="2">
+    <div class="post-header">
+      <img src="assets/test1.jpg" alt="Wonderbuild">
+      <div>
+        <h4>Wonderbuild Interlocking Bricks</h4>
+        <span>2 days • Tema</span>
+      </div>
+    </div>
 
-  <div class="post-content">
-    "We were able to build our dream home faster and more affordably..."
-  </div>
+    <img class="post-image" src="assets/test1.jpg" alt="Client Project">
 
-  <div class="stats">
-    <span class="likes">👍 <span>0</span> Likes</span> • 
-    <span class="comments-count">💬 <span>0</span> Comments</span> • 
-    <span class="shares">🔁 <span>0</span> Shares</span>
-  </div>
+    <div class="post-content">
+      "Using Wonderbuild bricks made construction faster and stress-free..."
+    </div>
 
-  <div class="actions">
-    <button class="like-btn">Like</button>
-    <button class="comment-btn">Comment</button>
-    <button class="share-btn">Share</button>
-  </div>
+    <div class="stats">
+      👍 <span class="likes"><span>0</span></span> Likes • 
+      💬 <span class="comments-count"><span>0</span></span> Comments • 
+      🔁 <span class="shares"><span>0</span></span> Shares
+    </div>
 
-  <div class="comment-section" style="display:none;">
-    <input type="text" class="comment-input" placeholder="Write a comment...">
-    <button class="submit-comment">Post</button>
-    <div class="comments-list"></div>
-  </div>
-</div>
-    
-   <div class="post" data-id="2">
-  <div class="post-header">
-    <img src="assets/test1.jpg" alt="Wonderbuild">
-    <div>
-      <h4>Wonderbuild Interlocking Bricks</h4>
-      <span>2 days • Tema</span>
+    <div class="actions">
+      <button class="like-btn">Like</button>
+      <button class="comment-btn">Comment</button>
+      <button class="share-btn">Share</button>
+    </div>
+
+    <div class="comment-section" style="display:none;">
+      <input type="text" class="comment-input" placeholder="Write a comment...">
+      <button class="submit-comment">Post</button>
+      <div class="comments-list"></div>
     </div>
   </div>
 
-  <img class="post-image" src="assets/test1.jpg" alt="Client Project">
+</main>
 
-  <div class="post-content">
-    "Using Wonderbuild bricks made construction faster and stress-free..."
-  </div>
+<!-- JS (VERY IMPORTANT: put here) -->
+<script src="js/script.js"></script>
 
-  <div class="stats">
-    <span class="likes">👍 <span>0</span> Likes</span> • 
-    <span class="comments-count">💬 <span>0</span> Comments</span> • 
-    <span class="shares">🔁 <span>0</span> Shares</span>
-  </div>
-
-  <div class="actions">
-    <button class="like-btn">Like</button>
-    <button class="comment-btn">Comment</button>
-    <button class="share-btn">Share</button>
-  </div>
-
-  <div class="comment-section" style="display:none;">
-    <input type="text" class="comment-input" placeholder="Write a comment...">
-    <button class="submit-comment">Post</button>
-    <div class="comments-list"></div>
-  </div>
-</div>
+</body>
+</html>
