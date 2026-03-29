@@ -42,66 +42,108 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  // =========================
-  // TESTIMONIALS INTERACTION
-  // =========================
+  document.addEventListener("DOMContentLoaded", function () {
+
   const posts = document.querySelectorAll('.post');
 
-  if (posts.length > 0) {
+  posts.forEach(post => {
 
-    posts.forEach(post => {
+    const postId = post.getAttribute("data-id");
 
-      const likeBtn = post.querySelector('.like-btn');
-      const shareBtn = post.querySelector('.share-btn');
-      const commentBtn = post.querySelector('.comment-btn');
-      const commentSection = post.querySelector('.comment-section');
-      const submitBtn = post.querySelector('.submit-comment');
-      const input = post.querySelector('.comment-input');
-      const commentsList = post.querySelector('.comments-list');
+    const likeBtn = post.querySelector('.like-btn');
+    const shareBtn = post.querySelector('.share-btn');
+    const commentBtn = post.querySelector('.comment-btn');
+    const commentSection = post.querySelector('.comment-section');
+    const submitBtn = post.querySelector('.submit-comment');
+    const input = post.querySelector('.comment-input');
+    const commentsList = post.querySelector('.comments-list');
 
-      // Safety check
-      if (!likeBtn || !shareBtn || !commentBtn) return;
+    const likeDisplay = post.querySelector('.likes span');
+    const commentCountDisplay = post.querySelector('.comments-count span');
+    const shareDisplay = post.querySelector('.shares span');
 
-      let likeCount = 0;
-      let shareCount = 0;
+    // =========================
+    // LOAD FROM LOCAL STORAGE
+    // =========================
+    let likeCount = localStorage.getItem(`likes-${postId}`) || 0;
+    let shareCount = localStorage.getItem(`shares-${postId}`) || 0;
+    let comments = JSON.parse(localStorage.getItem(`comments-${postId}`)) || [];
 
-      // 👍 LIKE
-      likeBtn.addEventListener('click', () => {
-        likeCount++;
-        post.querySelector('.likes span').textContent = likeCount;
-      });
+    likeDisplay.textContent = likeCount;
+    shareDisplay.textContent = shareCount;
+    commentCountDisplay.textContent = comments.length;
 
-      // 🔁 SHARE
-      shareBtn.addEventListener('click', () => {
-        shareCount++;
-        post.querySelector('.shares span').textContent = shareCount;
-      });
+    // Load comments
+    comments.forEach(text => {
+      const p = document.createElement('p');
+      p.textContent = text;
+      commentsList.appendChild(p);
+    });
 
-      // 💬 TOGGLE COMMENT BOX
-      commentBtn.addEventListener('click', () => {
-        commentSection.style.display =
-          commentSection.style.display === 'none' ? 'block' : 'none';
-      });
+    // =========================
+    // LIKE BUTTON
+    // =========================
+    likeBtn.addEventListener('click', () => {
+      likeCount++;
+      likeDisplay.textContent = likeCount;
+      localStorage.setItem(`likes-${postId}`, likeCount);
+    });
 
-      // 📝 ADD COMMENT
-      submitBtn.addEventListener('click', () => {
-        const text = input.value.trim();
+    // =========================
+    // SHARE BUTTON (WHATSAPP + FACEBOOK)
+    // =========================
+    shareBtn.addEventListener('click', () => {
 
-        if (text !== '') {
-          const p = document.createElement('p');
-          p.textContent = text;
-          commentsList.appendChild(p);
+      shareCount++;
+      shareDisplay.textContent = shareCount;
+      localStorage.setItem(`shares-${postId}`, shareCount);
 
-          // Update count
-          post.querySelector('.comments-count span').textContent =
-            commentsList.children.length;
+      const url = window.location.href;
 
-          input.value = '';
-        }
-      });
+      // Ask user where to share
+      const choice = prompt("Type: 1 for WhatsApp, 2 for Facebook");
+
+      if (choice === "1") {
+        window.open(`https://wa.me/?text=${encodeURIComponent(url)}`);
+      } else if (choice === "2") {
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`);
+      }
+    });
+
+    // =========================
+    // TOGGLE COMMENT
+    // =========================
+    commentBtn.addEventListener('click', () => {
+      commentSection.style.display =
+        commentSection.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // =========================
+    // ADD COMMENT
+    // =========================
+    submitBtn.addEventListener('click', () => {
+
+      const text = input.value.trim();
+
+      if (text !== '') {
+
+        // Add to UI
+        const p = document.createElement('p');
+        p.textContent = text;
+        commentsList.appendChild(p);
+
+        // Save
+        comments.push(text);
+        localStorage.setItem(`comments-${postId}`, JSON.stringify(comments));
+
+        // Update count
+        commentCountDisplay.textContent = comments.length;
+
+        input.value = '';
+      }
 
     });
 
-  }
+  });
 
 });
