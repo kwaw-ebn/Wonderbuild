@@ -42,108 +42,66 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  document.addEventListener("DOMContentLoaded", function () {
-
+  // =========================
+  // TESTIMONIALS INTERACTION
+  // =========================
   const posts = document.querySelectorAll('.post');
 
-  posts.forEach(post => {
+  if (posts.length > 0) {
 
-    const postId = post.getAttribute("data-id");
+    posts.forEach(post => {
 
-    const likeBtn = post.querySelector('.like-btn');
-    const shareBtn = post.querySelector('.share-btn');
-    const commentBtn = post.querySelector('.comment-btn');
-    const commentSection = post.querySelector('.comment-section');
-    const submitBtn = post.querySelector('.submit-comment');
-    const input = post.querySelector('.comment-input');
-    const commentsList = post.querySelector('.comments-list');
+      const likeBtn = post.querySelector('.like-btn');
+      const shareBtn = post.querySelector('.share-btn');
+      const commentBtn = post.querySelector('.comment-btn');
+      const commentSection = post.querySelector('.comment-section');
+      const submitBtn = post.querySelector('.submit-comment');
+      const input = post.querySelector('.comment-input');
+      const commentsList = post.querySelector('.comments-list');
 
-    const likeDisplay = post.querySelector('.likes span');
-    const commentCountDisplay = post.querySelector('.comments-count span');
-    const shareDisplay = post.querySelector('.shares span');
+      // Safety check
+      if (!likeBtn || !shareBtn || !commentBtn) return;
 
-    // =========================
-    // LOAD FROM LOCAL STORAGE
-    // =========================
-    let likeCount = localStorage.getItem(`likes-${postId}`) || 0;
-    let shareCount = localStorage.getItem(`shares-${postId}`) || 0;
-    let comments = JSON.parse(localStorage.getItem(`comments-${postId}`)) || [];
+      let likeCount = 0;
+      let shareCount = 0;
 
-    likeDisplay.textContent = likeCount;
-    shareDisplay.textContent = shareCount;
-    commentCountDisplay.textContent = comments.length;
+      // 👍 LIKE
+      likeBtn.addEventListener('click', () => {
+        likeCount++;
+        post.querySelector('.likes span').textContent = likeCount;
+      });
 
-    // Load comments
-    comments.forEach(text => {
-      const p = document.createElement('p');
-      p.textContent = text;
-      commentsList.appendChild(p);
-    });
+      // 🔁 SHARE
+      shareBtn.addEventListener('click', () => {
+        shareCount++;
+        post.querySelector('.shares span').textContent = shareCount;
+      });
 
-    // =========================
-    // LIKE BUTTON
-    // =========================
-    likeBtn.addEventListener('click', () => {
-      likeCount++;
-      likeDisplay.textContent = likeCount;
-      localStorage.setItem(`likes-${postId}`, likeCount);
-    });
+      // 💬 TOGGLE COMMENT BOX
+      commentBtn.addEventListener('click', () => {
+        commentSection.style.display =
+          commentSection.style.display === 'none' ? 'block' : 'none';
+      });
 
-    // =========================
-    // SHARE BUTTON (WHATSAPP + FACEBOOK)
-    // =========================
-    shareBtn.addEventListener('click', () => {
+      // 📝 ADD COMMENT
+      submitBtn.addEventListener('click', () => {
+        const text = input.value.trim();
 
-      shareCount++;
-      shareDisplay.textContent = shareCount;
-      localStorage.setItem(`shares-${postId}`, shareCount);
+        if (text !== '') {
+          const p = document.createElement('p');
+          p.textContent = text;
+          commentsList.appendChild(p);
 
-      const url = window.location.href;
+          // Update count
+          post.querySelector('.comments-count span').textContent =
+            commentsList.children.length;
 
-      // Ask user where to share
-      const choice = prompt("Type: 1 for WhatsApp, 2 for Facebook");
-
-      if (choice === "1") {
-        window.open(`https://wa.me/?text=${encodeURIComponent(url)}`);
-      } else if (choice === "2") {
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`);
-      }
-    });
-
-    // =========================
-    // TOGGLE COMMENT
-    // =========================
-    commentBtn.addEventListener('click', () => {
-      commentSection.style.display =
-        commentSection.style.display === 'none' ? 'block' : 'none';
-    });
-
-    // =========================
-    // ADD COMMENT
-    // =========================
-    submitBtn.addEventListener('click', () => {
-
-      const text = input.value.trim();
-
-      if (text !== '') {
-
-        // Add to UI
-        const p = document.createElement('p');
-        p.textContent = text;
-        commentsList.appendChild(p);
-
-        // Save
-        comments.push(text);
-        localStorage.setItem(`comments-${postId}`, JSON.stringify(comments));
-
-        // Update count
-        commentCountDisplay.textContent = comments.length;
-
-        input.value = '';
-      }
+          input.value = '';
+        }
+      });
 
     });
 
-  });
+  }
 
 });
